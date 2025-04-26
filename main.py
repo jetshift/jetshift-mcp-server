@@ -1,9 +1,10 @@
 from fastmcp import FastMCP
-from api import database
+from api import tools, database
 
 mcp = FastMCP(name="JetShift MCP Server", version="0.1.0", author="Md Obydullah")
 
 # Databases
+mcp.tool()(tools.ping_server)
 mcp.tool()(database.jetshift_databases)
 mcp.tool()(database.create_database)
 mcp.tool()(database.get_database)

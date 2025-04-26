@@ -11,7 +11,7 @@
 
 > JetShift MCP Server allows communication with JetShift. It lets you manage all aspects of JetShift.
 
-### Server
+## Server
 
 [FastMCP Doc](https://gofastmcp.com/getting-started/welcome)
 
@@ -30,7 +30,7 @@ mcp dev main.py
 fastmcp install jsmcp/main.py
 ```
 
-### Clients
+## Clients
 
 [Claude Desktop](https://claude.ai/download)
 
@@ -70,4 +70,14 @@ cp fastagent.secrets.example.yaml fastagent.secrets.yaml
 
 cd fast-agent
 uv run agent.py
+```
+
+## MCP prompts
+
+Create a database:
+
+```bash
+create a JetShift database from this connection
+
+mysql://obydul:123456@localhost:3306/test_db
 ```
