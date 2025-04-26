@@ -68,3 +68,42 @@ def get_database(database_id: int) -> str:
             return f"Error [{resp.status_code}]: {resp.text}"
     except Exception as e:
         return f"Error fetching database: {e}"
+
+
+def update_database(database_id: int, data: dict) -> str:
+    """
+    Update a JetShift database by its ID.
+
+    :param database_id: ID of the database to update
+    :param data: Dictionary containing fields to update
+    """
+    try:
+        url = f"{config.JETSHIFT_API_URL}/databases/{database_id}/"
+        headers = {'Content-Type': 'application/json'}
+        resp = requests.patch(url, headers=headers, data=json.dumps(data))
+
+        if resp.status_code == 200:
+            return f"Database with ID {database_id} updated successfully.\n{json.dumps(resp.json(), indent=2)}"
+        elif resp.status_code == 404:
+            return f"Database with ID {database_id} not found."
+        else:
+            return f"Error [{resp.status_code}]: {resp.text}"
+    except Exception as e:
+        return f"Error updating database: {e}"
+
+
+def delete_database(database_id: int) -> str:
+    """
+    Delete a JetShift database by its ID.
+    """
+    try:
+        url = f"{config.JETSHIFT_API_URL}/databases/{database_id}/"
+        resp = requests.delete(url)
+        if resp.status_code == 204:
+            return f"Database with ID {database_id} deleted successfully."
+        elif resp.status_code == 404:
+            return f"Database with ID {database_id} not found."
+        else:
+            return f"Error [{resp.status_code}]: {resp.text}"
+    except Exception as e:
+        return f"Error deleting database: {e}"
