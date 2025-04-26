@@ -77,7 +77,23 @@ uv run agent.py
 Create a database:
 
 ```bash
-create a JetShift database from this connection
+create a JetShift database from this connection mysql://obydul:123456@localhost:3306/test_db
+```
 
-mysql://obydul:123456@localhost:3306/test_db
+Update database info:
+
+```bash
+Rename database (5) title to "Test MCP database".
+```
+
+Get database info:
+
+```bash
+Show me the DB info. id = 5
+```
+
+Delete database:
+
+```bash
+Delete database id = 5
 ```
