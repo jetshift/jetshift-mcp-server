@@ -1,0 +1,15 @@
+[project]
+name = "jetshift_mcp_server"
+version = "0.1.0"
+description = "JetShift MCP Server"
+authors = [{ name = "Md Obydullah", email = "hi@obydul.me" }]
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=2.2.5",
+    "mcp[cli]>=1.3.0",
+    "python-dotenv>=1.0.0"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
